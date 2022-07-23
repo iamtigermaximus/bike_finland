@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 
 import Head from 'next/head'
 import styled from 'styled-components'
@@ -50,7 +50,7 @@ const Cycling = ({ stations }: any) => {
 
 export default Cycling
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { db } = await connectToDatabase()
 
   const data = await db
