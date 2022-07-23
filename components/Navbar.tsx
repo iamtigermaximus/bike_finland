@@ -150,7 +150,7 @@ const Navbar = () => {
           </LinkItemContainer>
           <LinkItemContainer>
             <Link href='/cycling'>
-              <LinkItem>Cycling</LinkItem>
+              <LinkItem>Bike Stations</LinkItem>
             </Link>
           </LinkItemContainer>
           <LinkItemContainer>
@@ -180,7 +180,7 @@ const Navbar = () => {
               </LinkItemContainer>
               <LinkItemContainer>
                 <Link href='/cycling'>
-                  <LinkItem>Cycling</LinkItem>
+                  <LinkItem>Bike Stations</LinkItem>
                 </Link>
               </LinkItemContainer>
               <LinkItemContainer>
