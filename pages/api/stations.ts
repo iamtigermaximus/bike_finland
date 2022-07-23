@@ -7,11 +7,7 @@ export default async function handler(
 ) {
   const { db } = await connectToDatabase()
 
-  const data = await db
-    .collection('bike_stations')
-    .find({})
-    .limit(30000)
-    .toArray()
+  const data = await db.collection('bike_stations').find({}).toArray()
 
   res.json({ data })
 }

@@ -1,10 +1,13 @@
+import { GetServerSideProps, GetStaticProps } from 'next'
+
 import Head from 'next/head'
 import styled from 'styled-components'
+import { connectToDatabase } from '../../lib/mongodb'
 import colors from '../../utils/colors'
 
 const Container = styled.div`
   background: ${colors.gray};
-  height: 100vh;
+  height: 100%;
 `
 
 const PageHeadingContainer = styled.div`
@@ -20,7 +23,14 @@ const Heading = styled.h1`
   font-size: 20px;
 `
 
-const Cycling = () => {
+const StationsContainer = styled.div`
+  height: 100%;
+  background: ${colors.yellow};
+`
+
+const Cycling = ({ stations }: any) => {
+  console.log('stations', stations)
+
   return (
     <Container>
       <Head>
@@ -31,8 +41,27 @@ const Cycling = () => {
       <PageHeadingContainer>
         <Heading>City Bikes Helsinki and Espoo</Heading>
       </PageHeadingContainer>
+      <StationsContainer>
+        {stations.splice(0, 30).map((station: any) => (
+          <h1 key={station._id}>{station.departure_station_name}</h1>
+        ))}
+      </StationsContainer>
     </Container>
   )
 }
 
 export default Cycling
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { db } = await connectToDatabase()
+
+  const data = await db.collection('bike_stations').find({}).toArray()
+
+  const stations = JSON.parse(JSON.stringify(data))
+
+  return {
+    props: {
+      stations: stations,
+    },
+  }
+}
