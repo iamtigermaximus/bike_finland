@@ -1,4 +1,4 @@
-import { GetServerSideProps, GetStaticProps } from 'next'
+import { GetStaticProps } from 'next'
 
 import Head from 'next/head'
 import styled from 'styled-components'
@@ -29,8 +29,6 @@ const StationsContainer = styled.div`
 `
 
 const Cycling = ({ stations }: any) => {
-  console.log('stations', stations)
-
   return (
     <Container>
       <Head>
@@ -55,7 +53,11 @@ export default Cycling
 export const getStaticProps: GetStaticProps = async (context) => {
   const { db } = await connectToDatabase()
 
-  const data = await db.collection('bike_stations').find({}).toArray()
+  const data = await db
+    .collection('bike_stations')
+    .find({})
+    .limit(30000)
+    .toArray()
 
   const stations = JSON.parse(JSON.stringify(data))
 
