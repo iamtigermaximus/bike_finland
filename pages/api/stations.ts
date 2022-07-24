@@ -8,9 +8,9 @@ export default async function handler(
   const { db } = await connectToDatabase()
 
   const data = await db
-    .collection('bike_stations')
+    .collection('bike_stations2')
     .find({})
-    .limit(30000)
+    .limit(1000)
     .toArray()
 
   res.json({ data })

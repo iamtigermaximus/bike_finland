@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next'
+import type { NextPage } from 'next'
 import Head from 'next/head'
 import styled from 'styled-components'
 import colors from '../utils/colors'
@@ -21,7 +21,7 @@ const Heading = styled.h1`
   font-size: 20px;
 `
 
-const Home: NextPage = ({ isConnected }: any) => {
+const Home: NextPage = () => {
   return (
     <Container>
       <Head>
@@ -37,9 +37,3 @@ const Home: NextPage = ({ isConnected }: any) => {
 }
 
 export default Home
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  return {
-    props: { isConnected: true },
-  }
-}
