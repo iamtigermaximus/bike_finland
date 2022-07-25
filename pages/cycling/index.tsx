@@ -8,6 +8,8 @@ import { connectToDatabase } from '../../lib/mongodb'
 import colors from '../../utils/colors'
 import { breakpoints as bp } from '../../utils/layout'
 
+import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api'
+
 type CardProps = {
   id: number
   name: string
@@ -95,7 +97,25 @@ const MapContainer = styled.div`
 
 const Cycling: React.FC<CardProps> = ({ stations }: any) => {
   const [searchStation, setSearchStation] = useState('')
+  const [map, setMap] = useState(null)
 
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+  })
+
+  if (!isLoaded) {
+    return <div>LOADING</div>
+  }
+
+  const center = {
+    lat: -3.745,
+    lng: -38.523,
+  }
+
+  const containerStyle = {
+    width: '100%',
+    height: '100%',
+  }
   return (
     <Container>
       <Head>
@@ -107,7 +127,15 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
         <Heading>City Bikes Helsinki and Espoo</Heading>
       </PageHeadingContainer>
       <StationLocationContainer>
-        <MapContainer>Maps</MapContainer>
+        <MapContainer>
+          <GoogleMap
+            center={center}
+            zoom={15}
+            mapContainerStyle={containerStyle}
+          >
+            <Marker position={center} />
+          </GoogleMap>
+        </MapContainer>
         <BikeStationsContainer>
           <SearchInputContainer>
             <SearchInput

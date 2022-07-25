@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.12.1",
     "@types/react-icon-base": "^2.1.4",
     "@types/styled-components": "^5.1.25",
     "mongodb": "^4.8.0",
