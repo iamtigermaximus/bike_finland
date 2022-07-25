@@ -104,7 +104,8 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
   const [map, setMap] = useState(null)
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+    id: 'google-map-script',
+    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY!,
   })
 
   if (!isLoaded) {
