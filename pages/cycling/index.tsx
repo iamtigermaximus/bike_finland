@@ -19,6 +19,10 @@ type CardProps = {
   capacity: number
 }
 
+interface LoadScriptUrlOptions {
+  googleMapsApiKey: string | ''
+}
+
 const Container = styled.div`
   background: ${colors.gray};
   height: 100%;
@@ -100,7 +104,7 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
   const [map, setMap] = useState(null)
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: 'process.env.GOOGLE_MAPS_API_KEY',
+    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
   })
 
   if (!isLoaded) {
