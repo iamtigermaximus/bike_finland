@@ -1,26 +1,20 @@
-import { GetServerSideProps, GetStaticProps } from 'next'
-
-import Head from 'next/head'
+import { GetServerSideProps } from 'next'
 import { useState } from 'react'
-import styled from 'styled-components'
+import Head from 'next/head'
 import Card from '../../components/Card'
-import { connectToDatabase } from '../../lib/mongodb'
+import styled from 'styled-components'
 import colors from '../../utils/colors'
 import { breakpoints as bp } from '../../utils/layout'
-
+import { connectToDatabase } from '../../lib/mongodb'
 import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api'
 
-type CardProps = {
+export type CardProps = {
   id: number
   name: string
   address: string
   city: string
   operator: string
   capacity: number
-}
-
-interface LoadScriptUrlOptions {
-  googleMapsApiKey: string | ''
 }
 
 const Container = styled.div`
@@ -64,7 +58,6 @@ const StationLocationContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   @media (min-width: ${bp.lg}) {
     flex-direction: row;
     align-items: flex-start;
@@ -78,7 +71,6 @@ const BikeStationsContainer = styled.div`
   order: 2;
   margin: 10px;
   width: 100%;
-
   @media (min-width: ${bp.lg}) {
     order: 1;
     width: 40%;
@@ -92,7 +84,6 @@ const MapContainer = styled.div`
   width: 100%;
   margin: 10px;
   order: 1;
-
   @media (min-width: ${bp.lg}) {
     order: 2;
     width: 60%;
@@ -149,9 +140,8 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
             />
           </SearchInputContainer>
           {stations.splice(0, 10).map((station: any) => (
-            // eslint-disable-next-line react/jsx-key
             <Card
-              id={station.ID}
+              key={station.ID}
               name={station.Nimi}
               address={station.Osoite}
               city={station.Kaupunki}
