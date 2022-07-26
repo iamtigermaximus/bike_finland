@@ -72,7 +72,7 @@ const BikeStationsContainer = styled.div`
   margin: 10px;
   padding: 10px;
   width: 100%;
-  border: 1px solid deepPink;
+  border: 1px solid ${colors.darkGray};
 
   @media (min-width: ${bp.lg}) {
     order: 1;
@@ -87,9 +87,11 @@ const MapContainer = styled.div`
   width: 100%;
   margin: 10px;
   order: 1;
+
   @media (min-width: ${bp.lg}) {
     order: 2;
     width: 60%;
+    height: 100vh;
   }
 `
 
@@ -107,8 +109,8 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
   }
 
   const center = {
-    lat: -3.745,
-    lng: -38.523,
+    lat: 60.1704,
+    lng: 24.9522,
   }
 
   const containerStyle = {
@@ -139,20 +141,32 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
           <SearchInputContainer>
             <SearchInput
               placeholder='Search City Bike Station'
+              value={searchStation}
               onChange={(e) => setSearchStation(e.target.value)}
             />
           </SearchInputContainer>
-          {stations.splice(0, 10).map((station: any) => (
-            <Card
-              key={station._id}
-              stationId={station.ID}
-              name={station.Nimi}
-              address={station.Osoite}
-              city={station.Kaupunki}
-              operator={station.Operaattor}
-              capacity={station.Kapasiteet}
-            />
-          ))}
+          {stations
+            .filter((station: any) => {
+              if (searchStation == '') {
+                return station
+              } else if (
+                station.Nimi.toLowerCase().includes(searchStation.toLowerCase())
+              ) {
+                return station
+              }
+            })
+            .slice(0, 10)
+            .map((station: any) => (
+              <Card
+                key={station._id}
+                stationId={station.ID}
+                name={station.Nimi}
+                address={station.Osoite}
+                city={station.Kaupunki}
+                operator={station.Operaattor}
+                capacity={station.Kapasiteet}
+              />
+            ))}
         </BikeStationsContainer>
       </StationLocationContainer>
     </Container>
