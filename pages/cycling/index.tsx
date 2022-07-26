@@ -70,7 +70,10 @@ const BikeStationsContainer = styled.div`
   flex-direction: column;
   order: 2;
   margin: 10px;
+  padding: 10px;
   width: 100%;
+  border: 1px solid deepPink;
+
   @media (min-width: ${bp.lg}) {
     order: 1;
     width: 40%;
@@ -141,7 +144,8 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
           </SearchInputContainer>
           {stations.splice(0, 10).map((station: any) => (
             <Card
-              key={station.ID}
+              key={station._id}
+              stationId={station.ID}
               name={station.Nimi}
               address={station.Osoite}
               city={station.Kaupunki}

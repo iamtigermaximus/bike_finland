@@ -45,9 +45,8 @@ const BikeStationCapacity = styled.h3`
   font-size: 16px;
 `
 
-const Card = ({
+const SingleStationCard = ({
   id,
-  stationId,
   name,
   address,
   city,
@@ -61,7 +60,7 @@ const Card = ({
         href={{
           pathname: '/cycling/[name]',
           query: {
-            stationId,
+            id,
             name,
             address,
             city,
@@ -74,7 +73,13 @@ const Card = ({
           <BikeStationCard id={id}>
             <BikeStationCardHeading>
               <BikeStationName>{name}</BikeStationName>
-              <BikeStationId>Bike Station {stationId}</BikeStationId>
+              <BikeStationId>Bike Station {id}</BikeStationId>
+              <BikeStationAddress>{address}</BikeStationAddress>
+              {city !== 'Espoo' ? (
+                <BikeStationCity>Helsinki</BikeStationCity>
+              ) : (
+                <BikeStationCity>{city}</BikeStationCity>
+              )}
             </BikeStationCardHeading>
 
             <BikeStationCardContent>
