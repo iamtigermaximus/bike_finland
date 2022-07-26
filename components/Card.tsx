@@ -76,7 +76,6 @@ const Card = ({
               <BikeStationName>{name}</BikeStationName>
               <BikeStationId>Bike Station {stationId}</BikeStationId>
             </BikeStationCardHeading>
-
             <BikeStationCardContent>
               <BikeStationCapacity>
                 Bikes available at the station: {capacity}

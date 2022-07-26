@@ -55,43 +55,28 @@ const SingleStationCard = ({
 }: any) => {
   return (
     <>
-      <Link
-        as={`/cycling/${name}`}
-        href={{
-          pathname: '/cycling/[name]',
-          query: {
-            id,
-            name,
-            address,
-            city,
-            operator,
-            capacity,
-          },
-        }}
-      >
-        <BikeStationsLinkItem>
-          <BikeStationCard id={id}>
-            <BikeStationCardHeading>
-              <BikeStationName>{name}</BikeStationName>
-              <BikeStationId>Bike Station {id}</BikeStationId>
-              <BikeStationAddress>{address}</BikeStationAddress>
-              {city !== 'Espoo' ? (
-                <BikeStationCity>Helsinki</BikeStationCity>
-              ) : (
-                <BikeStationCity>{city}</BikeStationCity>
-              )}
-            </BikeStationCardHeading>
+      <BikeStationsLinkItem>
+        <BikeStationCard id={id}>
+          <BikeStationCardHeading>
+            <BikeStationName>{name}</BikeStationName>
+            <BikeStationId>Bike Station {id}</BikeStationId>
+            <BikeStationAddress>{address}</BikeStationAddress>
+            {city !== 'Espoo' ? (
+              <BikeStationCity>Helsinki</BikeStationCity>
+            ) : (
+              <BikeStationCity>{city}</BikeStationCity>
+            )}
+          </BikeStationCardHeading>
 
-            <BikeStationCardContent>
-              <BikeStationCapacity>
-                Bikes available at the station: {capacity}
-              </BikeStationCapacity>
-            </BikeStationCardContent>
-          </BikeStationCard>
-        </BikeStationsLinkItem>
-      </Link>
+          <BikeStationCardContent>
+            <BikeStationCapacity>
+              Bikes available at the station: {capacity}
+            </BikeStationCapacity>
+          </BikeStationCardContent>
+        </BikeStationCard>
+      </BikeStationsLinkItem>
     </>
   )
 }
 
-export default Card
+export default SingleStationCard
