@@ -27,11 +27,43 @@ const Heading = styled.h1`
     font-size: 40px;
   }
 `
-const ImageContainer = styled.div`
+
+const HeroContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 40px 10px;
+`
+
+const HeroTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const HeroHeading = styled.h1`
+  font-weight: 400;
+  font-size: 16px;
+
+  @media (min-width: ${bp.md}) {
+    font-size: 35px;
+  }
+`
+
+const HeroTexts = styled.h1`
+  font-weight: 400;
+  font-size: 13px;
+  padding: 10px;
+
+  @media (min-width: ${bp.md}) {
+    font-size: 25px;
+    padding: 20px 100px;
+  }
+`
+const ImageContainer = styled.div`
+  padding: 20px;
 `
 
 const Home: NextPage = () => {
@@ -45,9 +77,18 @@ const Home: NextPage = () => {
       <PageHeadingContainer>
         <Heading>City Bikes</Heading>
       </PageHeadingContainer>
-      <ImageContainer>
-        <Image src={CityBike1} alt='City Bike' width={900} height={500} />
-      </ImageContainer>
+      <HeroContainer>
+        <HeroTextContainer>
+          <HeroHeading>Welcome to Helsinki City Bikes!</HeroHeading>
+          <HeroTexts>
+            Find the closest available bike and hop on! The bikes are available
+            from the beginning of April until the end of October.
+          </HeroTexts>
+        </HeroTextContainer>
+        <ImageContainer>
+          <Image src={CityBike1} alt='City Bike' width={900} height={500} />
+        </ImageContainer>
+      </HeroContainer>
     </Container>
   )
 }
