@@ -3,9 +3,11 @@ import Head from 'next/head'
 import styled from 'styled-components'
 import colors from '../utils/colors'
 import { breakpoints as bp } from '../utils/layout'
+import Image from 'next/image'
+import CityBike1 from '../assets/images/City_Bike1.jpeg'
 
 const Container = styled.div`
-  background: ${colors.gray};
+  background: ${colors.white};
   height: 100vh;
 `
 
@@ -25,6 +27,12 @@ const Heading = styled.h1`
     font-size: 40px;
   }
 `
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 10px;
+`
 
 const Home: NextPage = () => {
   return (
@@ -37,6 +45,9 @@ const Home: NextPage = () => {
       <PageHeadingContainer>
         <Heading>City Bikes</Heading>
       </PageHeadingContainer>
+      <ImageContainer>
+        <Image src={CityBike1} alt='City Bike' width={900} height={500} />
+      </ImageContainer>
     </Container>
   )
 }
