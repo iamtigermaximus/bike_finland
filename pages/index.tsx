@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import styled from 'styled-components'
 import colors from '../utils/colors'
+import { breakpoints as bp } from '../utils/layout'
 
 const Container = styled.div`
   background: ${colors.gray};
@@ -19,6 +20,10 @@ const PageHeadingContainer = styled.div`
 const Heading = styled.h1`
   text-shadow: 0.6px 0 0;
   font-size: 20px;
+
+  @media (min-width: ${bp.md}) {
+    font-size: 40px;
+  }
 `
 
 const Home: NextPage = () => {
