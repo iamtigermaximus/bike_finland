@@ -58,6 +58,7 @@ const StationLocationContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   @media (min-width: ${bp.lg}) {
     flex-direction: row;
     align-items: flex-start;
@@ -94,6 +95,7 @@ const MapContainer = styled.div`
     height: 100vh;
   }
 `
+
 const LoadMoreButton = styled.button`
   padding: 10px;
   font-size: 13px;
@@ -116,15 +118,16 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
     return <div>LOADING</div>
   }
 
-  const center = {
-    lat: 60.1704,
-    lng: 24.9522,
-  }
+  // const center = {
+  //   lat: 60.1704,
+  //   lng: 24.9522,
+  // }
 
   const containerStyle = {
     width: '100%',
     height: '100%',
   }
+
   return (
     <Container>
       <Head>
@@ -138,11 +141,22 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
       <StationLocationContainer>
         <MapContainer>
           <GoogleMap
-            center={center}
             zoom={15}
+            center={{
+              lat: 60.1704,
+              lng: 24.9522,
+            }}
             mapContainerStyle={containerStyle}
           >
-            <Marker position={center} />
+            {stations.map((station: any) => (
+              <Marker
+                key={station._id}
+                position={{
+                  lat: parseFloat(station.x),
+                  lng: parseFloat(station.y),
+                }}
+              />
+            ))}
           </GoogleMap>
         </MapContainer>
         <BikeStationsContainer>
