@@ -94,6 +94,14 @@ const MapContainer = styled.div`
     height: 100vh;
   }
 `
+const LoadMoreButton = styled.button`
+  padding: 10px;
+  font-size: 13px;
+  background: ${colors.yellow};
+  width: 100px;
+  border-radius: 5px;
+  border: 1px solid ${colors.yellow};
+`
 
 const Cycling: React.FC<CardProps> = ({ stations }: any) => {
   const [searchStation, setSearchStation] = useState('')
@@ -167,6 +175,7 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
                 capacity={station.Kapasiteet}
               />
             ))}
+          <LoadMoreButton>Load More</LoadMoreButton>
         </BikeStationsContainer>
       </StationLocationContainer>
     </Container>
