@@ -33,6 +33,10 @@ const PageHeadingContainer = styled.div`
 const Heading = styled.h1`
   text-shadow: 0.6px 0 0;
   font-size: 20px;
+
+  @media (min-width: ${bp.md}) {
+    font-size: 40px;
+  }
 `
 
 const SearchInputContainer = styled.div`
