@@ -123,6 +123,7 @@ const MobileMenuContainer = styled.ul`
   background: ${colors.navy};
   transform: translateX(0%);
   transition: transform 0.3s ease-out;
+  z-index: 1;
 
   &.active {
     transform: translateX(-100%);
