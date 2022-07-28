@@ -87,6 +87,13 @@ const SingleStationAddress = styled.h1`
   font-weight: 500;
   padding-bottom: 5px;
 `
+
+const SingleStationCity = styled.h1`
+  font-size: 20px;
+  font-weight: 500;
+  padding-bottom: 5px;
+`
+
 const SingleStationCapacity = styled.h1`
   font-size: 20px;
   font-weight: 500;
@@ -117,17 +124,20 @@ const Input = styled.input`
 `
 const BikeStation = () => {
   const router = useRouter()
-  const { name, address, stationId, capacity } = router.query
+  const { name, address, city, stationId, capacity } = router.query
 
   const [map, setMap] = useState(null)
 
-  const { isLoaded } = useJsApiLoader({
+  const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY!,
   })
 
+  if (loadError) {
+    return <div>Error Loading Maps</div>
+  }
   if (!isLoaded) {
-    return <div>LOADING</div>
+    return <div>Loading Maps</div>
   }
 
   const center = {
@@ -158,6 +168,11 @@ const BikeStation = () => {
         <SingleStationName>{name}</SingleStationName>
         <SingleStationNumber>Bike Station {stationId}</SingleStationNumber>
         <SingleStationAddress>{address}</SingleStationAddress>
+        {city !== 'Espoo' ? (
+          <SingleStationCity>Helsinki</SingleStationCity>
+        ) : (
+          <SingleStationCapacity>{city}</SingleStationCapacity>
+        )}
         <SingleStationCapacity>
           Station Bike Capacity: {capacity}
         </SingleStationCapacity>
