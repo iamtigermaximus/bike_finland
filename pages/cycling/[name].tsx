@@ -67,6 +67,32 @@ const SingleStationContainer = styled.div`
   flex-direction: column;
   background: ${colors.yellow};
 `
+const SingleStationTitle = styled.h1`
+  font-size: 25px;
+  font-weight: 500;
+  padding-bottom: 10px;
+`
+const SingleStationName = styled.h1`
+  font-size: 30px;
+  font-weight: 600;
+  padding-bottom: 10px;
+`
+const SingleStationNumber = styled.h1`
+  font-size: 20px;
+  font-weight: 500;
+  padding-bottom: 5px;
+`
+const SingleStationAddress = styled.h1`
+  font-size: 20px;
+  font-weight: 500;
+  padding-bottom: 5px;
+`
+const SingleStationCapacity = styled.h1`
+  font-size: 20px;
+  font-weight: 500;
+  padding-bottom: 5px;
+`
+
 const BackContainer = styled.div`
   margin: 30px;
   color: ${colors.navy};
@@ -128,11 +154,13 @@ const BikeStation = () => {
         <h3> Back </h3>
       </BackContainer>
       <SingleStationContainer>
-        <h1> Bike Station Details</h1>
-        <h1>{name}</h1>
-        <h3>Bike Station {stationId}</h3>
-        <h3>{address}</h3>
-        <h2>Capacity {capacity}</h2>
+        <SingleStationTitle> Bike Station Details</SingleStationTitle>
+        <SingleStationName>{name}</SingleStationName>
+        <SingleStationNumber>Bike Station {stationId}</SingleStationNumber>
+        <SingleStationAddress>{address}</SingleStationAddress>
+        <SingleStationCapacity>
+          Station Bike Capacity: {capacity}
+        </SingleStationCapacity>
       </SingleStationContainer>
       <StationLocationContainer>
         <MapContainer>
