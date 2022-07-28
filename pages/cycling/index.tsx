@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import colors from '../../utils/colors'
 import { breakpoints as bp } from '../../utils/layout'
 import { connectToDatabase } from '../../lib/mongodb'
-import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api'
+import { useJsApiLoader, GoogleMap, MarkerF } from '@react-google-maps/api'
 
 export type CardProps = {
   id: number
@@ -127,15 +127,19 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
     return <div>LOADING</div>
   }
 
-  // const center = {
-  //   lat: 60.1704,
-  //   lng: 24.9522,
-  // }
+  const center = {
+    lat: 60.1704,
+    lng: 24.9522,
+  }
 
   const containerStyle = {
     width: '100%',
     height: '100%',
   }
+
+  let lat = stations.y
+  let lng = stations.x
+  const coordinates = { lat: lat, lng: lng }
 
   return (
     <Container>
@@ -151,21 +155,10 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
         <MapContainer>
           <GoogleMap
             zoom={15}
-            center={{
-              lat: 60.1704,
-              lng: 24.9522,
-            }}
+            center={center}
             mapContainerStyle={containerStyle}
           >
-            {stations.map((station: any) => (
-              <Marker
-                key={station._id}
-                position={{
-                  lat: parseFloat(station.y),
-                  lng: parseFloat(station.x),
-                }}
-              />
-            ))}
+            <MarkerF position={center} />
           </GoogleMap>
         </MapContainer>
         <BikeStationsContainer>

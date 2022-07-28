@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Head from 'next/head'
 import colors from '../../utils/colors'
 import { breakpoints as bp } from '../../utils/layout'
-import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api'
+import { useJsApiLoader, GoogleMap, MarkerF } from '@react-google-maps/api'
 import { useState } from 'react'
 
 const Container = styled.div`
@@ -184,7 +184,7 @@ const BikeStation = () => {
             zoom={15}
             mapContainerStyle={containerStyle}
           >
-            <Marker position={center} />
+            <MarkerF position={center} />
           </GoogleMap>
         </MapContainer>
         <BikeStationsContainer>
