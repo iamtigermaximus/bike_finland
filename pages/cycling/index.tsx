@@ -112,6 +112,11 @@ const LoadMoreButton = styled.button`
 const Cycling: React.FC<CardProps> = ({ stations }: any) => {
   const [searchStation, setSearchStation] = useState('')
   const [map, setMap] = useState(null)
+  const [noOfStations, setNoOfStations] = useState(10)
+
+  const loadMore = () => {
+    setNoOfStations(noOfStations + noOfStations)
+  }
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -181,7 +186,7 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
                 return station
               }
             })
-            .slice(0, 10)
+            .slice(0, noOfStations)
             .map((station: any) => (
               <Card
                 key={station._id}
@@ -193,7 +198,7 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
                 capacity={station.Kapasiteet}
               />
             ))}
-          <LoadMoreButton>Load More</LoadMoreButton>
+          <LoadMoreButton onClick={loadMore}>Load More</LoadMoreButton>
         </BikeStationsContainer>
       </StationLocationContainer>
     </Container>
