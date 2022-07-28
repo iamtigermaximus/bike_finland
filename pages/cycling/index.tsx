@@ -156,8 +156,8 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
               <Marker
                 key={station._id}
                 position={{
-                  lat: parseFloat(station.x),
-                  lng: parseFloat(station.y),
+                  lat: parseFloat(station.y),
+                  lng: parseFloat(station.x),
                 }}
               />
             ))}
