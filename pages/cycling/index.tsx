@@ -1,6 +1,8 @@
 import { GetServerSideProps } from 'next'
 import { useState } from 'react'
 import Head from 'next/head'
+import CityBike3 from '../../assets/images/bike.svg'
+import Image from 'next/image'
 import Card from '../../components/Card'
 import styled from 'styled-components'
 import colors from '../../utils/colors'
@@ -138,16 +140,16 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
   }
 
   const blueDot = {
-    fillColor: 'blue',
+    fillColor: 'red',
     fillOpacity: 1,
-    path: google.maps.SymbolPath.CIRCLE,
-    scale: 12,
+    path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+    scale: 5,
     strokeColor: 'white',
     strokeWeight: 2,
   }
 
   const stationDot = {
-    fillColor: 'red',
+    fillColor: 'orange',
     fillOpacity: 1,
     path: google.maps.SymbolPath.CIRCLE,
     scale: 8,
