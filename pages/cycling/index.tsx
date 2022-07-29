@@ -178,7 +178,7 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
             {stations.map((station: any) => {
               return (
                 <MarkerF
-                  key={stations._id}
+                  key={station._id}
                   position={{ lat: station.y, lng: station.x }}
                   title={station.Osoite}
                   icon={stationDot}
