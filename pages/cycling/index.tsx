@@ -1,8 +1,6 @@
 import { GetServerSideProps } from 'next'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
-import CityBike3 from '../../assets/images/bike.svg'
-import Image from 'next/image'
 import Card from '../../components/Card'
 import styled from 'styled-components'
 import colors from '../../utils/colors'
@@ -115,6 +113,29 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
   const [searchStation, setSearchStation] = useState('')
   const [map, setMap] = useState(null)
   const [noOfStations, setNoOfStations] = useState(10)
+  const [location, setLocation] = useState({
+    lat: 60.1704,
+    lng: 24.9522,
+  })
+
+  const success = (position: any) => {
+    const coordinates = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    }
+    setLocation(coordinates)
+  }
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.permissions
+        .query({ name: 'geolocation' })
+        .then(function (result) {
+          if (result.state === 'granted') {
+            navigator.geolocation.getCurrentPosition(success)
+          }
+        })
+    }
+  }, [])
 
   const loadMore = () => {
     setNoOfStations(noOfStations + noOfStations)
@@ -129,21 +150,16 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
     return <div>LOADING</div>
   }
 
-  const center = {
-    lat: 60.1704,
-    lng: 24.9522,
-  }
-
   const containerStyle = {
     width: '100%',
     height: '100%',
   }
 
   const blueDot = {
-    fillColor: 'red',
+    fillColor: 'blue',
     fillOpacity: 1,
-    path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-    scale: 5,
+    path: google.maps.SymbolPath.CIRCLE,
+    scale: 8,
     strokeColor: 'white',
     strokeWeight: 2,
   }
@@ -151,8 +167,8 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
   const stationDot = {
     fillColor: 'orange',
     fillOpacity: 1,
-    path: google.maps.SymbolPath.CIRCLE,
-    scale: 8,
+    path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+    scale: 5,
     strokeColor: 'white',
     strokeWeight: 2,
   }
@@ -171,16 +187,17 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
         <MapContainer>
           <GoogleMap
             zoom={15}
-            center={center}
+            center={location}
             mapContainerStyle={containerStyle}
           >
-            <MarkerF position={center} icon={blueDot} />
+            <MarkerF position={location} icon={blueDot} />
             {stations.map((station: any) => {
               return (
                 <MarkerF
                   key={station._id}
                   position={{ lat: station.y, lng: station.x }}
                   title={station.Osoite}
+                  label={{ text: `${station.Nimi}`, color: 'white' }}
                   icon={stationDot}
                 />
               )

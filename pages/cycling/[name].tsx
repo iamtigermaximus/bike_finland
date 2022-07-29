@@ -4,7 +4,7 @@ import Head from 'next/head'
 import colors from '../../utils/colors'
 import { breakpoints as bp } from '../../utils/layout'
 import { useJsApiLoader, GoogleMap, MarkerF } from '@react-google-maps/api'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Container = styled.div`
   background: ${colors.gray};
@@ -122,11 +122,35 @@ const Input = styled.input`
   justify-content: center;
   align-items: center;
 `
+
 const BikeStation = () => {
   const router = useRouter()
   const { name, address, city, stationId, capacity } = router.query
 
   const [map, setMap] = useState(null)
+  const [location, setLocation] = useState({
+    lat: 60.1704,
+    lng: 24.9522,
+  })
+
+  const success = (position: any) => {
+    const coordinates = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    }
+    setLocation(coordinates)
+  }
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.permissions
+        .query({ name: 'geolocation' })
+        .then(function (result) {
+          if (result.state === 'granted') {
+            navigator.geolocation.getCurrentPosition(success)
+          }
+        })
+    }
+  }, [])
 
   const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
@@ -140,17 +164,19 @@ const BikeStation = () => {
     return <div>Loading Maps</div>
   }
 
-  const center = {
-    lat: 60.1704,
-    lng: 24.9522,
-  }
-
   const containerStyle = {
     width: '100%',
     height: '100%',
   }
 
-  console.log('name1', router.query)
+  const blueDot = {
+    fillColor: 'blue',
+    fillOpacity: 1,
+    path: google.maps.SymbolPath.CIRCLE,
+    scale: 8,
+    strokeColor: 'white',
+    strokeWeight: 2,
+  }
 
   return (
     <Container>
@@ -180,11 +206,11 @@ const BikeStation = () => {
       <StationLocationContainer>
         <MapContainer>
           <GoogleMap
-            center={center}
+            center={location}
             zoom={15}
             mapContainerStyle={containerStyle}
           >
-            <MarkerF position={center} />
+            <MarkerF position={location} icon={blueDot} />
           </GoogleMap>
         </MapContainer>
         <BikeStationsContainer>
