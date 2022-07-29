@@ -137,10 +137,6 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
     height: '100%',
   }
 
-  let lat = stations.y
-  let lng = stations.x
-  const coordinates = { lat: lat, lng: lng }
-
   return (
     <Container>
       <Head>
@@ -158,6 +154,14 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
             center={center}
             mapContainerStyle={containerStyle}
           >
+            {stations.map((station: any) => {
+              return (
+                <MarkerF
+                  key={stations._id}
+                  position={{ lat: station.y, lng: station.x }}
+                />
+              )
+            })}
             <MarkerF position={center} />
           </GoogleMap>
         </MapContainer>
