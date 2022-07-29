@@ -137,6 +137,24 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
     height: '100%',
   }
 
+  const blueDot = {
+    fillColor: 'blue',
+    fillOpacity: 1,
+    path: google.maps.SymbolPath.CIRCLE,
+    scale: 12,
+    strokeColor: 'white',
+    strokeWeight: 2,
+  }
+
+  const stationDot = {
+    fillColor: 'red',
+    fillOpacity: 1,
+    path: google.maps.SymbolPath.CIRCLE,
+    scale: 8,
+    strokeColor: 'white',
+    strokeWeight: 2,
+  }
+
   return (
     <Container>
       <Head>
@@ -154,15 +172,17 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
             center={center}
             mapContainerStyle={containerStyle}
           >
+            <MarkerF position={center} icon={blueDot} />
             {stations.map((station: any) => {
               return (
                 <MarkerF
                   key={stations._id}
                   position={{ lat: station.y, lng: station.x }}
+                  title={station.Osoite}
+                  icon={stationDot}
                 />
               )
             })}
-            <MarkerF position={center} />
           </GoogleMap>
         </MapContainer>
         <BikeStationsContainer>
