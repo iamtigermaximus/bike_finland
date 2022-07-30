@@ -95,7 +95,7 @@ const BuyPassCard = styled.div`
   padding: 20px;
 
   @media (min-width: ${bp.md}) {
-    margin: 10px;
+    margin: 20px;
   }
 
   @media (min-width: ${bp.lg}) {
