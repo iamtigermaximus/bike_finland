@@ -1,6 +1,6 @@
 # Bike Finland
 
-## Bike Finland is an application that helps the user in locating Bike stations in Helsinki and Espoo.
+## Bike Finland is an application that helps the user in locating Bike stations in Helsinki and Espoo. The user can filter and search for the nearest stations.The app is deployed in Vercel- [Demo](https://bike-finland.vercel.app/)
 
 <img width="707" alt="Screenshot 2022-07-30 at 12 04 25" src="https://user-images.githubusercontent.com/46716968/181903741-9ba3bed4-9b07-4d43-ad43-abcb5f176816.png">
 <img width="750" alt="Screenshot 2022-07-30 at 12 05 08" src="https://user-images.githubusercontent.com/46716968/181903743-317be2ce-d444-425c-b074-083aa1ea543f.png">
