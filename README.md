@@ -19,6 +19,7 @@
 - EditorConfig for VSCode 
 - node v12.x (use nvm)
 - yarn (install via npm)
+- API key from React Google Maps
 
 ## Dataset: [https://opendata.arcgis.com/datasets/726277c507ef4914b0aec3cbcfcbfafc_0.csv](https://opendata.arcgis.com/datasets/726277c507ef4914b0aec3cbcfcbfafc_0.csv)
 
