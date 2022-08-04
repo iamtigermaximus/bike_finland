@@ -115,7 +115,7 @@ const InputContainer = styled.div`
 `
 
 const Input = styled.input`
-  padding: 10px 5px;
+  padding: 10px 15px;
   width: 100%;
   border-radius: 5px;
   display: flex;

@@ -48,7 +48,7 @@ const SearchInputContainer = styled.div`
   width: 100%;
 `
 const SearchInput = styled.input`
-  padding: 10px 5px;
+  padding: 10px 15px;
   margin: 0 10px;
   width: 100%;
   border-radius: 5px;
