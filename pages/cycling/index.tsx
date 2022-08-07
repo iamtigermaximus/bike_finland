@@ -113,10 +113,7 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
   const [searchStation, setSearchStation] = useState('')
   const [map, setMap] = useState(null)
   const [noOfStations, setNoOfStations] = useState(10)
-  const [location, setLocation] = useState({
-    lat: 0,
-    lng: 0,
-  })
+  const [location, setLocation] = useState({})
 
   const success = (position: any) => {
     const coordinates = {
