@@ -33,7 +33,7 @@ const BuyPassCard = styled.div`
 `
 
 const BuyPassCardTitle = styled.h1`
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 500;
   padding: 5px;
 
@@ -54,12 +54,13 @@ const BuyPassCardSubtexts = styled.h1`
 `
 
 const BuyPassCardPrice = styled.h1`
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 500;
   padding: 0 5px;
 
   @media (min-width: ${bp.md}) {
     margin: 10px;
+    font-size: 50px;
   }
 `
 
