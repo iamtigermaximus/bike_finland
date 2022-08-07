@@ -46,10 +46,14 @@ const HeroTextContainer = styled.div`
 
 const HeroHeading = styled.h1`
   font-weight: 400;
-  font-size: 30px;
+  font-size: 16px;
   padding: 20px;
 
   @media (min-width: ${bp.md}) {
+    font-size: 25px;
+  }
+
+  @media (min-width: ${bp.lg}) {
     font-size: 35px;
   }
 `
@@ -60,8 +64,11 @@ const HeroTexts = styled.h1`
   padding: 10px;
 
   @media (min-width: ${bp.md}) {
-    font-size: 25px;
+    font-size: 15px;
     padding: 20px 100px;
+  }
+  @media (min-width: ${bp.lg}) {
+    font-size: 20px;
   }
 `
 const ImageContainer = styled.div`
