@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import colors from '../utils/colors'
 import { breakpoints as bp } from '../utils/layout'
+import Link from 'next/link'
 
 const CardsContainer = styled.div`
   display: flex;
@@ -74,7 +75,7 @@ border-radius: 5px;
   }
 `
 
-const PassCard = () => {
+const PassCard = ({ ticket }: any) => {
   return (
     <CardsContainer>
       <BuyPassCard>
@@ -85,9 +86,9 @@ const PassCard = () => {
         </BuyPassCardSubtexts>
         <BuyPassCardPrice>€35</BuyPassCardPrice>
         <BuyPassCardSubtexts>+ potential extra charges</BuyPassCardSubtexts>
-        <BuyPassCardSelect onClick={() => alert('Selected Season Card!')}>
-          Select
-        </BuyPassCardSelect>
+        <Link href='/buy-a-pass/season'>
+          <BuyPassCardSelect>Select</BuyPassCardSelect>
+        </Link>
       </BuyPassCard>
       <BuyPassCard>
         <BuyPassCardTitle>Week</BuyPassCardTitle>
@@ -96,9 +97,9 @@ const PassCard = () => {
         </BuyPassCardSubtexts>
         <BuyPassCardPrice>€10</BuyPassCardPrice>
         <BuyPassCardSubtexts>+ potential extra charges</BuyPassCardSubtexts>
-        <BuyPassCardSelect onClick={() => alert('Selected Weekly Card!')}>
-          Select
-        </BuyPassCardSelect>
+        <Link href='/buy-a-pass/weekly'>
+          <BuyPassCardSelect>Select</BuyPassCardSelect>
+        </Link>
       </BuyPassCard>
       <BuyPassCard>
         <BuyPassCardTitle>Day</BuyPassCardTitle>
@@ -107,9 +108,9 @@ const PassCard = () => {
         </BuyPassCardSubtexts>
         <BuyPassCardPrice>€5</BuyPassCardPrice>
         <BuyPassCardSubtexts>+ potential extra charges</BuyPassCardSubtexts>
-        <BuyPassCardSelect onClick={() => alert('Selected Day Card!')}>
-          Select
-        </BuyPassCardSelect>
+        <Link href='/buy-a-pass/day'>
+          <BuyPassCardSelect>Select</BuyPassCardSelect>
+        </Link>
       </BuyPassCard>
     </CardsContainer>
   )
