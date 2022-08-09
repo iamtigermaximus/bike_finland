@@ -172,10 +172,10 @@ const BikeStation = () => {
   const blueDot = {
     fillColor: 'blue',
     fillOpacity: 1,
-    path: google.maps.SymbolPath.CIRCLE,
-    scale: 8,
+    path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+    scale: 5,
     strokeColor: 'white',
-    strokeWeight: 2,
+    strokeWeight: 1,
   }
 
   return (
