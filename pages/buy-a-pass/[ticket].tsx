@@ -207,8 +207,8 @@ const Ticket = () => {
             </Label>
           </CheckboxContainer>
           <AgreementsButtonContainer>
-            <ContinueButton>Continue</ContinueButton>
-            <AbortButton> Abort</AbortButton>
+            <ContinueButton disabled={true}>Continue</ContinueButton>
+            <AbortButton onClick={() => alert('Aborted')}> Abort</AbortButton>
           </AgreementsButtonContainer>
         </AgreementsContainer>
       </PassCardContentContainer>
