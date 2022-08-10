@@ -1,4 +1,5 @@
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import styled from 'styled-components'
 import colors from '../utils/colors'
 
@@ -12,6 +13,7 @@ const Layout = ({ children }: any) => {
     <Container>
       <Navbar />
       <div>{children}</div>
+      <Footer />
     </Container>
   )
 }
