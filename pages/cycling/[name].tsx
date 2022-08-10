@@ -182,6 +182,7 @@ const BikeStation = () => {
     <Container>
       <Head>
         <title>Bike Station</title>
+        <link rel='icon' href='/City_Bike3.png' />
       </Head>
       <PageHeadingContainer>
         <Heading>Bike Station</Heading>
