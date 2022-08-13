@@ -53,6 +53,8 @@ const Card = ({
   city,
   operator,
   capacity,
+  latY,
+  lngX,
 }: any) => {
   return (
     <>
@@ -67,6 +69,8 @@ const Card = ({
             city,
             operator,
             capacity,
+            latY,
+            lngX,
           },
         }}
       >

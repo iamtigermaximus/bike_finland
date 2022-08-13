@@ -125,7 +125,7 @@ const Input = styled.input`
 
 const BikeStation = () => {
   const router = useRouter()
-  const { name, address, city, stationId, capacity } = router.query
+  const { name, address, city, stationId, capacity, lngX, latY } = router.query
 
   const [map, setMap] = useState(null)
   const [location, setLocation] = useState({
@@ -212,6 +212,7 @@ const BikeStation = () => {
             mapContainerStyle={containerStyle}
           >
             <MarkerF position={location} icon={blueDot} />
+            <MarkerF position={{ lat: Number(latY), lng: Number(lngX) }} />
           </GoogleMap>
         </MapContainer>
         <BikeStationsContainer>

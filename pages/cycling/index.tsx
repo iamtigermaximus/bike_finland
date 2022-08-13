@@ -16,6 +16,8 @@ export type CardProps = {
   city: string
   operator: string
   capacity: number
+  latY?: number
+  lngX?: number
 }
 
 const Container = styled.div`
@@ -238,6 +240,8 @@ const Cycling: React.FC<CardProps> = ({ stations }: any) => {
                 city={station.Kaupunki}
                 operator={station.Operaattor}
                 capacity={station.Kapasiteet}
+                latY={station.y}
+                lngX={station.x}
               />
             ))}
           <LoadMoreButton onClick={loadMore}>Load More</LoadMoreButton>
