@@ -8,6 +8,7 @@
 <img width="743" alt="Screenshot 2022-07-30 at 12 06 53" src="https://user-images.githubusercontent.com/46716968/181903750-0aa16dd8-b743-4f6f-9de3-8814e15d7676.png">
 
 ## Built with:
+
 - NextJS
 - React Hooks
 - Typescript
@@ -16,12 +17,28 @@
 - React Google Maps
 
 ## Requirements
-- EditorConfig for VSCode 
+
+- EditorConfig for VSCode
 - node v12.x (use nvm)
 - yarn (install via npm)
-- API key from React Google Maps
+- API key from Google Maps
 
 ## Dataset: [https://opendata.arcgis.com/datasets/726277c507ef4914b0aec3cbcfcbfafc_0.csv](https://opendata.arcgis.com/datasets/726277c507ef4914b0aec3cbcfcbfafc_0.csv)
 
+## Features:
 
+- Display bike stations in Helsinki and Espoo (displays station name, number and capacity)
+- Single Station Page (displays station name, station number, address, and capacity)
+- Pagination (load more pagination)
+- Filter bike stations
+- Search a bike stations
+- Plot bike stations on the Map
+- Show current location on the Map
+- Show specific bike station on the Map (clicked bike station)
+- Display different travel pass
+- Responsive on different screen size
 
+## To Do:
+
+- Buy travel pass functionality
+- Login/ logout for profile
