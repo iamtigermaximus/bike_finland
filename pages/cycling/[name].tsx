@@ -178,6 +178,8 @@ const BikeStation = () => {
     strokeWeight: 1,
   }
 
+  const isMobile = window.innerWidth <= 480
+
   return (
     <Container>
       <Head>
@@ -206,14 +208,25 @@ const BikeStation = () => {
       </SingleStationContainer>
       <StationLocationContainer>
         <MapContainer>
-          <GoogleMap
-            center={location}
-            zoom={11}
-            mapContainerStyle={containerStyle}
-          >
-            <MarkerF position={location} icon={blueDot} />
-            <MarkerF position={{ lat: Number(latY), lng: Number(lngX) }} />
-          </GoogleMap>
+          {isMobile ? (
+            <GoogleMap
+              center={location}
+              zoom={10}
+              mapContainerStyle={containerStyle}
+            >
+              <MarkerF position={location} icon={blueDot} />
+              <MarkerF position={{ lat: Number(latY), lng: Number(lngX) }} />
+            </GoogleMap>
+          ) : (
+            <GoogleMap
+              center={location}
+              zoom={11}
+              mapContainerStyle={containerStyle}
+            >
+              <MarkerF position={location} icon={blueDot} />
+              <MarkerF position={{ lat: Number(latY), lng: Number(lngX) }} />
+            </GoogleMap>
+          )}
         </MapContainer>
         <BikeStationsContainer>
           <h1>Plan your journey</h1>
