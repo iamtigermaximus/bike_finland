@@ -104,6 +104,7 @@ const BackContainer = styled.div`
   margin: 30px;
   color: ${colors.navy};
   width: 70px;
+  cursor: pointer;
 `
 
 const InputContainer = styled.div`
