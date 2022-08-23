@@ -6,6 +6,7 @@ import { breakpoints as bp } from '../utils/layout'
 import Image from 'next/image'
 import CityBike1 from '../assets/images/City_Bike1.jpeg'
 import PassCard from '../components/PassCard'
+import InstructionCard from '../components/InstructionCard'
 
 const Container = styled.div`
   background: ${colors.white};
@@ -86,10 +87,19 @@ const CardsContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 20px;
 
   @media (min-width: ${bp.md}) {
     flex-direction: row;
+    margin-bottom: 50px;
   }
+`
+const InstructionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
 `
 
 const Home: NextPage = () => {
@@ -121,6 +131,12 @@ const Home: NextPage = () => {
           <PassCard />
         </CardsContainer>
       </BuyPassContainer>
+      <InstructionContainer>
+        <HeroHeading>How it works</HeroHeading>
+        <CardsContainer>
+          <InstructionCard />
+        </CardsContainer>
+      </InstructionContainer>
     </Container>
   )
 }
