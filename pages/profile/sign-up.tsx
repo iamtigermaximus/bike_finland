@@ -17,7 +17,7 @@ const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 600px;
-  height: 700px;
+  height: 90vh;
   margin: 20px;
   box-shadow: 0 0 10px ${colors.darkGray};
   flex-direction: column;
@@ -62,26 +62,15 @@ const InputLabel = styled.label`
   margin-left: 20px;
   padding: 10px 0;
 `
-const ForgotPasswordContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 40px;
-`
-const ForgotPasswordLink = styled.h1`
-  font-size: 16px;
-  border-radius: 5px;
-  padding: 20px 0;
-  margin: 0 20px;
-  color: ${colors.navy};
-`
-const SignInButtonContainer = styled.div`
+
+const SignUpButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 20px;
 `
-const SignInButton = styled.button`
+const SignUpButton = styled.button`
   background: ${colors.yellow};
   padding: 15px;
   width: 300px;
@@ -137,34 +126,25 @@ const Profile = () => {
       </Head>
       <LoginContainer>
         <LoginTitleContainer>
-          <LoginTitle>Login</LoginTitle>
+          <LoginTitle>Create an account</LoginTitle>
         </LoginTitleContainer>
         <InputContainer>
-          <InputLabel>Email or Phone Number</InputLabel>
-          <Input type='email' name='email' placeholder='Type your email' />
+          <InputLabel>First name</InputLabel>
+          <Input name='first name' />
+          <InputLabel>Last name</InputLabel>
+          <Input name='last name' />
+          <InputLabel>Mobile number</InputLabel>
+          <Input name='mobile' />
+          <InputLabel>Email</InputLabel>
+          <Input name='email' />
           <InputLabel>Password</InputLabel>
-          <Input
-            type='password'
-            name='password'
-            placeholder='Type your password'
-          />
+          <Input type='password' name='password' />
+          <InputLabel>Confirm password</InputLabel>
+          <Input type='password' name='password' />
         </InputContainer>
-        <ForgotPasswordContainer>
-          <Link href={'/profile/forgot-password'}>
-            <ForgotPasswordLink>Forgot your password?</ForgotPasswordLink>
-          </Link>
-        </ForgotPasswordContainer>
-        <SignInButtonContainer>
-          <SignInButton>Sign in</SignInButton>
-        </SignInButtonContainer>
-        <CreateAccountContainer>
-          <CreateAccountTitle>Don't have an account yet?</CreateAccountTitle>
-        </CreateAccountContainer>
-        <SignInButtonContainer>
-          <Link href={'/profile/sign-up'}>
-            <CreateAccountButton>Create account</CreateAccountButton>
-          </Link>
-        </SignInButtonContainer>
+        <SignUpButtonContainer>
+          <SignUpButton>Continue</SignUpButton>
+        </SignUpButtonContainer>
       </LoginContainer>
     </Container>
   )
