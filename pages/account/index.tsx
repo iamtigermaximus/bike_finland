@@ -128,11 +128,11 @@ const CreateAccountButton = styled.button`
   }
 `
 
-const Profile = () => {
+const Account = () => {
   return (
     <Container>
       <Head>
-        <title>PROFILE</title>
+        <title>Account</title>
         <link rel='icon' href='/City_Bike3.png' />
       </Head>
       <LoginContainer>
@@ -150,7 +150,7 @@ const Profile = () => {
           />
         </InputContainer>
         <ForgotPasswordContainer>
-          <Link href={'/profile/forgot-password'}>
+          <Link href={'/account/forgot-password'}>
             <ForgotPasswordLink>Forgot your password?</ForgotPasswordLink>
           </Link>
         </ForgotPasswordContainer>
@@ -161,7 +161,7 @@ const Profile = () => {
           <CreateAccountTitle>Don't have an account yet?</CreateAccountTitle>
         </CreateAccountContainer>
         <SignInButtonContainer>
-          <Link href={'/profile/sign-up'}>
+          <Link href={'/account/sign-up'}>
             <CreateAccountButton>Create account</CreateAccountButton>
           </Link>
         </SignInButtonContainer>
@@ -170,4 +170,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default Account
