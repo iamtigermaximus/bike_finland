@@ -12,7 +12,7 @@ const Container = styled.div`
   justify-content: center;
 `
 
-const LoginContainer = styled.div`
+const SignUpContainer = styled.div`
   background: ${colors.white};
   display: flex;
   justify-content: center;
@@ -23,14 +23,14 @@ const LoginContainer = styled.div`
   flex-direction: column;
 `
 
-const LoginTitleContainer = styled.div`
+const SignUpTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
 `
-const LoginTitle = styled.h1`
+const SignUpTitle = styled.h1`
   text-shadow: 0.6px 0 0;
   font-size: 20px;
 
@@ -85,38 +85,6 @@ const SignUpButton = styled.button`
   }
 `
 
-const CreateAccountContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 40px;
-  margin: 20px;
-`
-const CreateAccountTitle = styled.h1`
-  text-shadow: 0.6px 0 0;
-  font-size: 10px;
-  font-weight: 500;
-
-  @media (min-width: ${bp.md}) {
-    font-size: 20px;
-  }
-`
-const CreateAccountButton = styled.button`
-  background: ${colors.white};
-  padding: 15px;
-  width: 300px;
-  margin: 20px;
-  border: 1px solid ${colors.black};
-  border-radius: 15px;
-  font-size: 20px;
-  font-weight: 500;
-
-  @media (min-width: ${bp.md}) {
-    padding: 20px 15px;
-  }
-`
-
 const Profile = () => {
   return (
     <Container>
@@ -124,10 +92,10 @@ const Profile = () => {
         <title>PROFILE</title>
         <link rel='icon' href='/City_Bike3.png' />
       </Head>
-      <LoginContainer>
-        <LoginTitleContainer>
-          <LoginTitle>Create an account</LoginTitle>
-        </LoginTitleContainer>
+      <SignUpContainer>
+        <SignUpTitleContainer>
+          <SignUpTitle>Create an account</SignUpTitle>
+        </SignUpTitleContainer>
         <InputContainer>
           <InputLabel>First name</InputLabel>
           <Input name='first name' />
@@ -145,7 +113,7 @@ const Profile = () => {
         <SignUpButtonContainer>
           <SignUpButton>Continue</SignUpButton>
         </SignUpButtonContainer>
-      </LoginContainer>
+      </SignUpContainer>
     </Container>
   )
 }
