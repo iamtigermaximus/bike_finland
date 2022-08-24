@@ -5,6 +5,16 @@ import colors from '../../utils/colors'
 import { breakpoints as bp } from '../../utils/layout'
 import Link from 'next/link'
 
+import { useForm, SubmitHandler } from 'react-hook-form'
+
+type FormData = {
+  firstName: string
+  lastName: string
+  mobile: number
+  email: string
+  password: string
+}
+
 const Container = styled.div`
   background: ${colors.gray};
   height: 100vh;
@@ -84,8 +94,28 @@ const SignUpButton = styled.button`
     padding: 20px 15px;
   }
 `
+const InputForm = styled.form`
+  width: 100%;
+  > .error {
+    color: #fff;
+    margin-bottom: 10px;
+  }
+`
+const ErrorMessage = styled.p`
+  color: red;
+  margin-left: 25px;
+  font-size: 12px;
+`
 
 const Profile = () => {
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm<FormData>()
+
+  const submitForm = (data: any) => console.log(data)
   return (
     <Container>
       <Head>
@@ -96,23 +126,90 @@ const Profile = () => {
         <SignUpTitleContainer>
           <SignUpTitle>Create an account</SignUpTitle>
         </SignUpTitleContainer>
-        <InputContainer>
-          <InputLabel>First name</InputLabel>
-          <Input name='first name' />
-          <InputLabel>Last name</InputLabel>
-          <Input name='last name' />
-          <InputLabel>Mobile number</InputLabel>
-          <Input name='mobile' />
-          <InputLabel>Email</InputLabel>
-          <Input name='email' />
-          <InputLabel>Password</InputLabel>
-          <Input type='password' name='password' />
-          <InputLabel>Confirm password</InputLabel>
-          <Input type='password' name='password' />
-        </InputContainer>
-        <SignUpButtonContainer>
-          <SignUpButton>Continue</SignUpButton>
-        </SignUpButtonContainer>
+        <InputForm onSubmit={handleSubmit(submitForm)}>
+          <InputContainer>
+            <InputLabel>First name</InputLabel>
+            <Input
+              type='text'
+              {...register('firstName', {
+                required: true,
+                maxLength: 20,
+              })}
+              placeholder='First name'
+            />
+            {errors.firstName?.type === 'required' && (
+              <ErrorMessage>First Name is required</ErrorMessage>
+            )}
+            <InputLabel>Last name</InputLabel>
+            <Input
+              type='text'
+              {...register('lastName', {
+                required: true,
+                maxLength: 20,
+              })}
+              placeholder='Last name'
+            />
+            {errors.lastName?.type === 'required' && (
+              <ErrorMessage>Last Name is required</ErrorMessage>
+            )}
+
+            <InputLabel>Mobile number</InputLabel>
+            <Input
+              type='number'
+              {...register('mobile', {
+                required: true,
+                maxLength: 10,
+              })}
+              placeholder='Mobile'
+            />
+            {errors.mobile && (
+              <ErrorMessage>Mobile number is required</ErrorMessage>
+            )}
+            <InputLabel>Email</InputLabel>
+            <Input
+              type='email'
+              {...register('email', {
+                required: true,
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: 'Please enter valid Email',
+                },
+              })}
+              placeholder='Email'
+            />
+            {errors.email && (
+              <ErrorMessage>Email address is required</ErrorMessage>
+            )}
+
+            <InputLabel>Password</InputLabel>
+            <Input
+              type='password'
+              {...register('password', {
+                required: true,
+              })}
+              placeholder='Password'
+            />
+            {errors.password && <ErrorMessage>Password required</ErrorMessage>}
+            <InputLabel>Confirm password</InputLabel>
+            <Input
+              type='password'
+              {...register('password', {
+                required: true,
+                validate: {
+                  matchesPreviousPassword: (value) => {
+                    const { password } = getValues()
+                    return password === value || 'Passwords should match!'
+                  },
+                },
+              })}
+              placeholder='Password'
+            />
+            {errors.password && <ErrorMessage>Confirm password</ErrorMessage>}
+          </InputContainer>
+          <SignUpButtonContainer>
+            <SignUpButton type='submit'>Continue</SignUpButton>
+          </SignUpButtonContainer>
+        </InputForm>
       </SignUpContainer>
     </Container>
   )
