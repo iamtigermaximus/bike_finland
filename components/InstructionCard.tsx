@@ -40,6 +40,7 @@ const MoreInfoLink = styled.h1`
   color: ${colors.navy};
   padding: 5px;
   cursor: pointer;
+  text-decoration: underline;
 
   @media (min-width: ${bp.md}) {
     margin: 10px;
@@ -52,25 +53,25 @@ const InstructionCard = () => {
       <InstructionStepCard>
         <InstructionCardTitle>REGISTER</InstructionCardTitle>
         <Link href='/instructions'>
-          <MoreInfoLink>More...</MoreInfoLink>
+          <MoreInfoLink>More</MoreInfoLink>
         </Link>
       </InstructionStepCard>
       <InstructionStepCard>
         <InstructionCardTitle>PICK UP</InstructionCardTitle>
         <Link href='/instructions'>
-          <MoreInfoLink>More...</MoreInfoLink>
+          <MoreInfoLink>More</MoreInfoLink>
         </Link>
       </InstructionStepCard>
       <InstructionStepCard>
         <InstructionCardTitle>RIDE</InstructionCardTitle>
         <Link href='/instructions'>
-          <MoreInfoLink>More...</MoreInfoLink>
+          <MoreInfoLink>More</MoreInfoLink>
         </Link>
       </InstructionStepCard>
       <InstructionStepCard>
         <InstructionCardTitle>RETURN</InstructionCardTitle>
         <Link href='/instructions'>
-          <MoreInfoLink>More... </MoreInfoLink>
+          <MoreInfoLink>More </MoreInfoLink>
         </Link>
       </InstructionStepCard>
     </>
