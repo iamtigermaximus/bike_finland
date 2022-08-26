@@ -17,7 +17,6 @@ const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 600px;
-  height: 700px;
   margin: 20px;
   box-shadow: 0 0 10px ${colors.darkGray};
   flex-direction: column;
@@ -35,7 +34,7 @@ const LoginTitle = styled.h1`
   font-size: 20px;
 
   @media (min-width: ${bp.md}) {
-    font-size: 40px;
+    font-size: 25px;
   }
 `
 
@@ -55,6 +54,10 @@ const Input = styled.input`
 
   @media (min-width: ${bp.md}) {
     padding: 20px 15px;
+  }
+
+  @media (min-width: ${bp.lg}) {
+    padding: 15px;
   }
 `
 
@@ -94,6 +97,10 @@ const SignInButton = styled.button`
   @media (min-width: ${bp.md}) {
     padding: 20px 15px;
   }
+
+  @media (min-width: ${bp.lg}) {
+    padding: 15px;
+  }
 `
 
 const CreateAccountContainer = styled.div`
@@ -125,6 +132,10 @@ const CreateAccountButton = styled.button`
 
   @media (min-width: ${bp.md}) {
     padding: 20px 15px;
+  }
+
+  @media (min-width: ${bp.lg}) {
+    padding: 15px;
   }
 `
 
