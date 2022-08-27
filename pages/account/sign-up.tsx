@@ -126,7 +126,6 @@ const Profile = () => {
                 required: true,
                 maxLength: 20,
               })}
-              placeholder='First name'
             />
             {errors.firstName?.type === 'required' && (
               <ErrorMessage>First Name is required</ErrorMessage>
@@ -138,7 +137,6 @@ const Profile = () => {
                 required: true,
                 maxLength: 20,
               })}
-              placeholder='Last name'
             />
             {errors.lastName?.type === 'required' && (
               <ErrorMessage>Last Name is required</ErrorMessage>
@@ -151,7 +149,6 @@ const Profile = () => {
                 required: true,
                 maxLength: 10,
               })}
-              placeholder='Mobile'
             />
             {errors.mobile && (
               <ErrorMessage>Mobile number is required</ErrorMessage>
@@ -166,7 +163,6 @@ const Profile = () => {
                   message: 'Please enter valid Email',
                 },
               })}
-              placeholder='Email'
             />
             {errors.email && (
               <ErrorMessage>Email address is required</ErrorMessage>
@@ -178,7 +174,6 @@ const Profile = () => {
               {...register('password', {
                 required: true,
               })}
-              placeholder='Password'
             />
             {errors.password && <ErrorMessage>Password required</ErrorMessage>}
             <InputLabel>Confirm password</InputLabel>
@@ -193,7 +188,6 @@ const Profile = () => {
                   },
                 },
               })}
-              placeholder='Password'
             />
             {errors.password && <ErrorMessage>Confirm password</ErrorMessage>}
             <SignUpButtonContainer>
