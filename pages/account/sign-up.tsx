@@ -26,11 +26,16 @@ const SignUpContainer = styled.div`
   background: ${colors.white};
   display: flex;
   justify-content: center;
-  width: 600px;
-  height: 90vh;
+  width: 100%;
+  height: 700px;
+  padding: 20px;
   margin: 20px;
   box-shadow: 0 0 10px ${colors.darkGray};
   flex-direction: column;
+
+  @media (min-width: ${bp.md}) {
+    max-width: 500px;
+  }
 `
 
 const SignUpTitleContainer = styled.div`
@@ -38,61 +43,47 @@ const SignUpTitleContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  margin-top: 10px;
 `
 const SignUpTitle = styled.h1`
   text-shadow: 0.6px 0 0;
   font-size: 20px;
-
-  @media (min-width: ${bp.md}) {
-    font-size: 40px;
-  }
 `
 
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
-  @media (min-width: ${bp.md}) {
-    margin: 0 40px;
-  }
 `
 const Input = styled.input`
   border-radius: 5px;
-  padding: 15px;
+  padding: 10px;
   margin: 0 20px;
-
-  @media (min-width: ${bp.md}) {
-    padding: 20px 15px;
-  }
 `
 
 const InputLabel = styled.label`
   margin-left: 20px;
   padding: 10px 0;
+  font-size: 10px;
+
+  @media (min-width: ${bp.md}) {
+    font-size: 15px;
+  }
 `
 
 const SignUpButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  margin-top: 20px;
+  padding: 15px;
 `
 const SignUpButton = styled.button`
   background: ${colors.yellow};
-  padding: 15px;
-  width: 300px;
-  margin: 10px;
+  padding: 10px;
+  width: 100%;
   border: 1px solid ${colors.yellow};
   border-radius: 15px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
-
-  @media (min-width: ${bp.md}) {
-    padding: 20px 15px;
-  }
 `
 const InputForm = styled.form`
   width: 100%;
@@ -123,11 +114,11 @@ const Profile = () => {
         <link rel='icon' href='/City_Bike3.png' />
       </Head>
       <SignUpContainer>
-        <SignUpTitleContainer>
-          <SignUpTitle>Create an account</SignUpTitle>
-        </SignUpTitleContainer>
         <InputForm onSubmit={handleSubmit(submitForm)}>
           <InputContainer>
+            <SignUpTitleContainer>
+              <SignUpTitle>Create an account</SignUpTitle>
+            </SignUpTitleContainer>
             <InputLabel>First name</InputLabel>
             <Input
               type='text'
@@ -205,10 +196,10 @@ const Profile = () => {
               placeholder='Password'
             />
             {errors.password && <ErrorMessage>Confirm password</ErrorMessage>}
+            <SignUpButtonContainer>
+              <SignUpButton type='submit'>Continue</SignUpButton>
+            </SignUpButtonContainer>
           </InputContainer>
-          <SignUpButtonContainer>
-            <SignUpButton type='submit'>Continue</SignUpButton>
-          </SignUpButtonContainer>
         </InputForm>
       </SignUpContainer>
     </Container>
