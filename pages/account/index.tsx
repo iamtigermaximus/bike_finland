@@ -16,10 +16,15 @@ const LoginContainer = styled.div`
   background: ${colors.white};
   display: flex;
   justify-content: center;
-  width: 600px;
+  width: 100%;
+  height: 600px;
   margin: 20px;
   box-shadow: 0 0 10px ${colors.darkGray};
   flex-direction: column;
+
+  @media (min-width: ${bp.md}) {
+    max-width: 500px;
+  }
 `
 
 const LoginTitleContainer = styled.div`
@@ -27,49 +32,38 @@ const LoginTitleContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  margin-top: 10px;
 `
 const LoginTitle = styled.h1`
   text-shadow: 0.6px 0 0;
   font-size: 20px;
-
-  @media (min-width: ${bp.md}) {
-    font-size: 25px;
-  }
 `
 
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
-  @media (min-width: ${bp.md}) {
-    margin: 0 40px;
-  }
+  padding: 20px;
 `
 const Input = styled.input`
   border-radius: 5px;
-  padding: 15px;
+  padding: 10px;
   margin: 0 20px;
-
-  @media (min-width: ${bp.md}) {
-    padding: 20px 15px;
-  }
-
-  @media (min-width: ${bp.lg}) {
-    padding: 15px;
-  }
 `
 
 const InputLabel = styled.label`
   margin-left: 20px;
   padding: 10px 0;
+  font-size: 10px;
+
+  @media (min-width: ${bp.md}) {
+    font-size: 15px;
+  }
 `
 const ForgotPasswordContainer = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  margin: 0 40px;
+  align-items: center;
+  padding: 15px;
 `
 const ForgotPasswordLink = styled.h1`
   font-size: 16px;
@@ -82,38 +76,27 @@ const SignInButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  padding: 15px;
 `
 const SignInButton = styled.button`
   background: ${colors.yellow};
-  padding: 15px;
-  width: 300px;
-  margin: 10px;
+  padding: 10px;
+  width: 100%;
   border: 1px solid ${colors.yellow};
   border-radius: 15px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
-
-  @media (min-width: ${bp.md}) {
-    padding: 20px 15px;
-  }
-
-  @media (min-width: ${bp.lg}) {
-    padding: 15px;
-  }
 `
 
 const CreateAccountContainer = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 40px;
-  margin: 20px;
+  padding: 15px;
 `
 const CreateAccountTitle = styled.h1`
   text-shadow: 0.6px 0 0;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 500;
 
   @media (min-width: ${bp.md}) {
@@ -122,21 +105,12 @@ const CreateAccountTitle = styled.h1`
 `
 const CreateAccountButton = styled.button`
   background: ${colors.white};
-  padding: 15px;
-  width: 300px;
-  margin: 20px;
+  padding: 10px;
+  width: 100%;
   border: 1px solid ${colors.black};
   border-radius: 15px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
-
-  @media (min-width: ${bp.md}) {
-    padding: 20px 15px;
-  }
-
-  @media (min-width: ${bp.lg}) {
-    padding: 15px;
-  }
 `
 
 const Account = () => {
@@ -147,10 +121,10 @@ const Account = () => {
         <link rel='icon' href='/City_Bike3.png' />
       </Head>
       <LoginContainer>
-        <LoginTitleContainer>
-          <LoginTitle>Login</LoginTitle>
-        </LoginTitleContainer>
         <InputContainer>
+          <LoginTitleContainer>
+            <LoginTitle>Login</LoginTitle>
+          </LoginTitleContainer>
           <InputLabel>Email or Phone Number</InputLabel>
           <Input type='email' name='email' placeholder='Type your email' />
           <InputLabel>Password</InputLabel>
@@ -159,23 +133,23 @@ const Account = () => {
             name='password'
             placeholder='Type your password'
           />
+          <ForgotPasswordContainer>
+            <Link href={'/account/forgot-password'}>
+              <ForgotPasswordLink>Forgot your password?</ForgotPasswordLink>
+            </Link>
+          </ForgotPasswordContainer>
+          <SignInButtonContainer>
+            <SignInButton>Sign in</SignInButton>
+          </SignInButtonContainer>
+          <CreateAccountContainer>
+            <CreateAccountTitle>Don't have an account yet?</CreateAccountTitle>
+          </CreateAccountContainer>
+          <SignInButtonContainer>
+            <Link href={'/account/sign-up'}>
+              <CreateAccountButton>Create account</CreateAccountButton>
+            </Link>
+          </SignInButtonContainer>
         </InputContainer>
-        <ForgotPasswordContainer>
-          <Link href={'/account/forgot-password'}>
-            <ForgotPasswordLink>Forgot your password?</ForgotPasswordLink>
-          </Link>
-        </ForgotPasswordContainer>
-        <SignInButtonContainer>
-          <SignInButton>Sign in</SignInButton>
-        </SignInButtonContainer>
-        <CreateAccountContainer>
-          <CreateAccountTitle>Don't have an account yet?</CreateAccountTitle>
-        </CreateAccountContainer>
-        <SignInButtonContainer>
-          <Link href={'/account/sign-up'}>
-            <CreateAccountButton>Create account</CreateAccountButton>
-          </Link>
-        </SignInButtonContainer>
       </LoginContainer>
     </Container>
   )
