@@ -176,20 +176,6 @@ const SignUp = () => {
               })}
             />
             {errors.password && <ErrorMessage>Password required</ErrorMessage>}
-            <InputLabel>Confirm password</InputLabel>
-            <Input
-              type='password'
-              {...register('password', {
-                required: true,
-                validate: {
-                  matchesPreviousPassword: (value) => {
-                    const { password } = getValues()
-                    return password === value || 'Passwords should match!'
-                  },
-                },
-              })}
-            />
-            {errors.password && <ErrorMessage>Confirm password</ErrorMessage>}
             <SignUpButtonContainer>
               <SignUpButton type='submit'>Continue</SignUpButton>
             </SignUpButtonContainer>

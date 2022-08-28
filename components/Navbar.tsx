@@ -161,7 +161,7 @@ const Navbar = () => {
           </LinkItemContainer>
         </NavbarLinks>
         <UserLink>
-          <Link href='/account'>
+          <Link href='/account/login'>
             <a>
               <FaUser />
             </a>
