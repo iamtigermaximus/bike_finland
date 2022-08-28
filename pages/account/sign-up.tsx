@@ -98,7 +98,7 @@ const ErrorMessage = styled.p`
   font-size: 12px;
 `
 
-const Profile = () => {
+const SignUp = () => {
   const {
     register,
     handleSubmit,
@@ -200,4 +200,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default SignUp
