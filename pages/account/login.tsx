@@ -113,7 +113,7 @@ const CreateAccountButton = styled.button`
   font-weight: 500;
 `
 
-const Account = () => {
+const Login = () => {
   return (
     <Container>
       <Head>
@@ -155,4 +155,4 @@ const Account = () => {
   )
 }
 
-export default Account
+export default Login
