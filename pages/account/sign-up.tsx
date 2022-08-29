@@ -6,6 +6,7 @@ import { breakpoints as bp } from '../../utils/layout'
 import Link from 'next/link'
 
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { useState } from 'react'
 
 type FormData = {
   firstName: string
@@ -72,6 +73,7 @@ const InputLabel = styled.label`
 
 const SignUpButtonContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 15px;
@@ -102,15 +104,33 @@ const ErrorMessage = styled.p`
   margin-left: 25px;
   font-size: 12px;
 `
+const FormSubmittedMessage = styled.p`
+  color: green;
+  margin: 25px;
+  font-size: 12px;
+`
+const LoginLinkButton = styled.button`
+  background: ${colors.white};
+  padding: 10px;
+  width: 100%;
+  border: 1px solid ${colors.black};
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: 500;
+`
 
 const SignUp = () => {
+  const [loading, setLoading] = useState(true)
+  const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false)
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormData>()
 
   const submitForm = async (data: any) => {
+    setLoading(true)
     fetch('/api/users/addUser', {
       method: 'POST',
 
@@ -126,6 +146,10 @@ const SignUp = () => {
         'Content-type': 'application/json',
       },
     })
+    setLoading(false)
+    setIsSuccessfullySubmitted(true)
+    reset()
+    setLoading(true)
   }
 
   return (
@@ -198,7 +222,19 @@ const SignUp = () => {
             />
             {errors.password && <ErrorMessage>Password required</ErrorMessage>}
             <SignUpButtonContainer>
-              <SignUpButton type='submit'>Continue</SignUpButton>
+              <SignUpButton type='submit' disabled={!loading ? true : false}>
+                Create user
+              </SignUpButton>
+              {isSuccessfullySubmitted && (
+                <>
+                  <FormSubmittedMessage>
+                    Form submitted successfully
+                  </FormSubmittedMessage>
+                  <Link href={'/account/login'}>
+                    <LoginLinkButton>Login to your account? </LoginLinkButton>
+                  </Link>
+                </>
+              )}
             </SignUpButtonContainer>
           </InputContainer>
         </InputForm>
