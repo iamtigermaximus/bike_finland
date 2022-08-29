@@ -106,7 +106,7 @@ const SignUp = () => {
   } = useForm<FormData>()
 
   const submitForm = async (data: any) => {
-    fetch('http://localhost:3000/api/users/addUser', {
+    fetch('/api/users/addUser', {
       method: 'POST',
 
       body: JSON.stringify({
