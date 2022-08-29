@@ -84,6 +84,11 @@ const SignUpButton = styled.button`
   border-radius: 15px;
   font-size: 15px;
   font-weight: 500;
+
+  &:hover {
+    background: ${colors.yellow};
+    border: 1px solid ${colors.navy};
+  }
 `
 const InputForm = styled.form`
   width: 100%;
