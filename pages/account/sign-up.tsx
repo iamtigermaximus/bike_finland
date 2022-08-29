@@ -102,11 +102,27 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors },
   } = useForm<FormData>()
 
-  const submitForm = (data: any) => console.log(data)
+  const submitForm = async (data: any) => {
+    fetch('http://localhost:3000/api/users/addUser', {
+      method: 'POST',
+
+      body: JSON.stringify({
+        firstName: data.firstName,
+        lastName: data.lastName,
+        mobile: data.mobile,
+        email: data.email,
+        password: data.password,
+      }),
+
+      headers: {
+        'Content-type': 'application/json',
+      },
+    })
+  }
+
   return (
     <Container>
       <Head>
