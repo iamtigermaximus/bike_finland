@@ -37,6 +37,7 @@
 - Show specific bike station on the Map (clicked bike station)
 - Display different travel pass
 - Responsive on different screen size
+- SignUp functionality (new user registration)
 
 ## To Do:
 
