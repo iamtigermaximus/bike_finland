@@ -192,7 +192,9 @@ const SignUp = () => {
               type='number'
               {...register('mobile', {
                 required: true,
-                maxLength: 10,
+                pattern: /^[0-9+-]+$/,
+                minLength: 6,
+                maxLength: 12,
               })}
             />
             {errors.mobile && (
