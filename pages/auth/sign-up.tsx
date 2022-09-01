@@ -121,6 +121,12 @@ const LoginLinkButton = styled.button`
 
 const SignUp = () => {
   const [loading, setLoading] = useState(true)
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [mobile, setMobile] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false)
   const {
     register,
@@ -171,6 +177,8 @@ const SignUp = () => {
                 required: true,
                 maxLength: 20,
               })}
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
             />
             {errors.firstName?.type === 'required' && (
               <ErrorMessage>First Name is required</ErrorMessage>
@@ -182,6 +190,8 @@ const SignUp = () => {
                 required: true,
                 maxLength: 20,
               })}
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
             />
             {errors.lastName?.type === 'required' && (
               <ErrorMessage>Last Name is required</ErrorMessage>
@@ -196,6 +206,8 @@ const SignUp = () => {
                 minLength: 6,
                 maxLength: 12,
               })}
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
             />
             {errors.mobile && (
               <ErrorMessage>Mobile number is required</ErrorMessage>
@@ -210,6 +222,8 @@ const SignUp = () => {
                   message: 'Please enter valid Email',
                 },
               })}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             {errors.email && (
               <ErrorMessage>Email address is required</ErrorMessage>
@@ -221,6 +235,8 @@ const SignUp = () => {
               {...register('password', {
                 required: true,
               })}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             {errors.password && <ErrorMessage>Password required</ErrorMessage>}
             <SignUpButtonContainer>
