@@ -145,7 +145,7 @@ const Login = () => {
             <CreateAccountTitle>Don't have an account yet?</CreateAccountTitle>
           </CreateAccountContainer>
           <SignInButtonContainer>
-            <Link href={'/account/sign-up'}>
+            <Link href={'/auth/sign-up'}>
               <CreateAccountButton>Create account</CreateAccountButton>
             </Link>
           </SignInButtonContainer>
