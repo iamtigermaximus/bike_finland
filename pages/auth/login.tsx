@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import colors from '../../utils/colors'
 import { breakpoints as bp } from '../../utils/layout'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const Container = styled.div`
   background: ${colors.gray};
@@ -112,8 +113,12 @@ const CreateAccountButton = styled.button`
   font-size: 15px;
   font-weight: 500;
 `
+const LoginForm = styled.form``
 
 const Login = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   return (
     <Container>
       <Head>
@@ -121,35 +126,47 @@ const Login = () => {
         <link rel='icon' href='/City_Bike3.png' />
       </Head>
       <LoginContainer>
-        <InputContainer>
-          <LoginTitleContainer>
-            <LoginTitle>Login</LoginTitle>
-          </LoginTitleContainer>
-          <InputLabel>Email or Phone Number</InputLabel>
-          <Input type='email' name='email' placeholder='Type your email' />
-          <InputLabel>Password</InputLabel>
-          <Input
-            type='password'
-            name='password'
-            placeholder='Type your password'
-          />
-          <ForgotPasswordContainer>
-            <Link href={'/account/forgot-password'}>
-              <ForgotPasswordLink>Forgot your password?</ForgotPasswordLink>
-            </Link>
-          </ForgotPasswordContainer>
-          <SignInButtonContainer>
-            <SignInButton>Sign in</SignInButton>
-          </SignInButtonContainer>
-          <CreateAccountContainer>
-            <CreateAccountTitle>Don't have an account yet?</CreateAccountTitle>
-          </CreateAccountContainer>
-          <SignInButtonContainer>
-            <Link href={'/auth/sign-up'}>
-              <CreateAccountButton>Create account</CreateAccountButton>
-            </Link>
-          </SignInButtonContainer>
-        </InputContainer>
+        <LoginForm>
+          <InputContainer>
+            <LoginTitleContainer>
+              <LoginTitle>Login</LoginTitle>
+            </LoginTitleContainer>
+            <InputLabel>Email or Phone Number</InputLabel>
+            <Input
+              type='email'
+              name='email'
+              placeholder='Type your email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <InputLabel>Password</InputLabel>
+            <Input
+              type='password'
+              name='password'
+              placeholder='Type your password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <ForgotPasswordContainer>
+              <Link href={'/account/forgot-password'}>
+                <ForgotPasswordLink>Forgot your password?</ForgotPasswordLink>
+              </Link>
+            </ForgotPasswordContainer>
+            <SignInButtonContainer>
+              <SignInButton>Sign in</SignInButton>
+            </SignInButtonContainer>
+            <CreateAccountContainer>
+              <CreateAccountTitle>
+                Don't have an account yet?
+              </CreateAccountTitle>
+            </CreateAccountContainer>
+            <SignInButtonContainer>
+              <Link href={'/auth/sign-up'}>
+                <CreateAccountButton>Create account</CreateAccountButton>
+              </Link>
+            </SignInButtonContainer>
+          </InputContainer>
+        </LoginForm>
       </LoginContainer>
     </Container>
   )
