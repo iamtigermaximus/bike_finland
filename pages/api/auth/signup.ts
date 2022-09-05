@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { connectToDatabase } from '../../../lib/mongodb'
 import { v4 as uuidv4 } from 'uuid'
-import { hash } from 'bcryptjs'
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { db } = await connectToDatabase()
@@ -14,7 +13,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     lastName,
     mobile,
     email,
-    password: await hash(password, 12),
+    password,
     completed: false,
     createdAt: new Date(),
   })
