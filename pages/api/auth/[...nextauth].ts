@@ -43,6 +43,7 @@ const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  secret: 'LlKq6ZtYbr+hTC073mAmAh9/h2HwMfsFo4hrfCx5mLg=',
   pages: {
     signIn: '/auth/signin',
     // error: '/auth/error',
