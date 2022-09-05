@@ -15,6 +15,7 @@
 - Styled Components
 - MongoDB
 - React Google Maps
+- Next-Auth
 
 ## Requirements
 
@@ -38,8 +39,8 @@
 - Display different travel pass
 - Responsive on different screen size
 - SignUp functionality (new user registration)
+- Login/ logout for user profile
 
 ## To Do:
 
 - Buy travel pass functionality
-- Login/ logout for profile
