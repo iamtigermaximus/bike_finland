@@ -5,6 +5,7 @@ import { breakpoints as bp } from '../utils/layout'
 import styled from 'styled-components'
 import colors from '../utils/colors'
 import { FaBars, FaUser, FaTimes } from 'react-icons/fa'
+import { useSession } from 'next-auth/react'
 
 const NavbarContainer = styled.nav`
   width: 100%;
@@ -53,6 +54,21 @@ const UserLink = styled.div`
 
   > a {
     color: ${colors.offWhite};
+  }
+
+  @media (min-width: ${bp.lg}) {
+    margin: 10px 20px;
+  }
+`
+const UserOnline = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+  padding-top: 7px;
+  font-size: 25px;
+
+  > a {
+    color: #40ff00;
   }
 
   @media (min-width: ${bp.lg}) {
@@ -132,6 +148,8 @@ const MobileMenuContainer = styled.ul`
 `
 
 const Navbar = () => {
+  const { data: session } = useSession()
+
   const [click, setClick] = useState(true)
   const categoryMenu = () => setClick(!click)
 
@@ -160,13 +178,24 @@ const Navbar = () => {
             </Link>
           </LinkItemContainer>
         </NavbarLinks>
-        <UserLink>
-          <Link href='/auth/signin'>
-            <a>
-              <FaUser />
-            </a>
-          </Link>
-        </UserLink>
+        {session ? (
+          <UserOnline>
+            <Link href='/auth/signin'>
+              <a>
+                <FaUser />
+              </a>
+            </Link>
+          </UserOnline>
+        ) : (
+          <UserLink>
+            <Link href='/auth/signin'>
+              <a>
+                <FaUser />
+              </a>
+            </Link>
+          </UserLink>
+        )}
+
         <BurgerMenu onClick={categoryMenu}>
           {click ? <FaBars /> : <FaTimes />}
           <MobileMenuContainer
