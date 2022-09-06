@@ -3,8 +3,8 @@ import { useSession } from 'next-auth/react'
 import Router from 'next/router'
 import { useEffect } from 'react'
 import styled from 'styled-components'
-import colors from '../utils/colors'
-import { breakpoints as bp } from '../utils/layout'
+import colors from '../../utils/colors'
+import { breakpoints as bp } from '../../utils/layout'
 
 const ProtectedContainer = styled.div`
   background: ${colors.white};

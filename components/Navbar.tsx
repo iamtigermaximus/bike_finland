@@ -68,7 +68,7 @@ const UserOnline = styled.div`
   font-size: 25px;
 
   > a {
-    color: #40ff00;
+    color: #00ff00;
   }
 
   @media (min-width: ${bp.lg}) {

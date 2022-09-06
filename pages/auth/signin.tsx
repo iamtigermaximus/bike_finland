@@ -9,7 +9,7 @@ import { signIn } from 'next-auth/react'
 import { FormEventHandler, useState } from 'react'
 import { useRouter } from 'next/router'
 import { signOut, useSession } from 'next-auth/react'
-import Profile from '../protected'
+import Profile from '../protected/protected'
 
 interface Props {}
 
