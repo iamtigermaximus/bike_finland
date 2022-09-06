@@ -159,7 +159,9 @@ const SignIn: NextPage = (props): JSX.Element => {
         <LoginContainer>
           <Profile />
           <SignInButtonContainer>
-            <SignOutButton onClick={() => signOut()}>Log out</SignOutButton>
+            <SignOutButton onClick={() => signOut({ callbackUrl: '/' })}>
+              Log out
+            </SignOutButton>
           </SignInButtonContainer>
         </LoginContainer>
       ) : (
