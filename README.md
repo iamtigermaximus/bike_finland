@@ -44,3 +44,5 @@
 ## To Do:
 
 - Buy travel pass functionality
+- Compute the distance and duration between stations
+- Display the nearest station from the user location
