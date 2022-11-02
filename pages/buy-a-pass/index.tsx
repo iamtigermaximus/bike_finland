@@ -4,7 +4,7 @@ import colors from '../../utils/colors'
 import { breakpoints as bp } from '../../utils/layout'
 import Image from 'next/image'
 import CityBike2 from '../../assets/images/City_Bike2.jpeg'
-import PassCard from '../../components/PassCard'
+import PassCard from '../../components/passcard/PassCard'
 
 const Container = styled.div`
   background: ${colors.white};

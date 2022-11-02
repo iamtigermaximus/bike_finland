@@ -5,7 +5,7 @@ import colors from '../utils/colors'
 import { breakpoints as bp } from '../utils/layout'
 import Image from 'next/image'
 import CityBike1 from '../assets/images/City_Bike1.jpeg'
-import PassCard from '../components/PassCard'
+import PassCard from '../components/passcard/PassCard'
 import InstructionCard from '../components/instructions/InstructionCard'
 
 const Container = styled.div`
