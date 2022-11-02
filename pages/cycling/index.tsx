@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
-import Card from '../../components/Card'
+import Card from '../../components/card/Card'
 import styled from 'styled-components'
 import colors from '../../utils/colors'
 import { breakpoints as bp } from '../../utils/layout'
