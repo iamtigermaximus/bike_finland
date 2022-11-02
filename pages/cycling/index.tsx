@@ -2,12 +2,21 @@ import { GetServerSideProps } from 'next'
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Card from '../../components/card/Card'
-import styled from 'styled-components'
-import colors from '../../utils/colors'
-import { breakpoints as bp } from '../../utils/layout'
 import { connectToDatabase } from '../../lib/mongodb'
 import { useJsApiLoader, GoogleMap, MarkerF } from '@react-google-maps/api'
 import { FaLocationArrow } from 'react-icons/fa'
+import {
+  BikeStationsContainer,
+  Container,
+  Heading,
+  LoadMoreButton,
+  MapContainer,
+  PageHeadingContainer,
+  PanToCenterButton,
+  SearchInput,
+  SearchInputContainer,
+  StationLocationContainer,
+} from './cycling.styles'
 
 export type CardProps = {
   id: number
@@ -19,104 +28,6 @@ export type CardProps = {
   latY?: number
   lngX?: number
 }
-
-const Container = styled.div`
-  background: ${colors.gray};
-  height: 100%;
-`
-
-const PageHeadingContainer = styled.div`
-  background: ${colors.darkGray};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 0;
-`
-
-const Heading = styled.h1`
-  text-shadow: 0.6px 0 0;
-  font-size: 20px;
-
-  @media (min-width: ${bp.md}) {
-    font-size: 40px;
-  }
-`
-
-const SearchInputContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
-  flex-direction: row;
-  width: 100%;
-`
-const SearchInput = styled.input`
-  padding: 10px 15px;
-  margin: 0 10px;
-  width: 100%;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const StationLocationContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  @media (min-width: ${bp.lg}) {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-`
-
-const BikeStationsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  order: 2;
-  margin: 10px;
-  padding: 10px;
-  width: 100%;
-  border: 1px solid ${colors.darkGray};
-
-  @media (min-width: ${bp.lg}) {
-    order: 1;
-    width: 40%;
-  }
-`
-const MapContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  background: lightYellow;
-  height: 50vh;
-  width: 100%;
-  margin: 10px;
-  order: 1;
-
-  @media (min-width: ${bp.lg}) {
-    order: 2;
-    width: 60%;
-    height: 100vh;
-  }
-`
-
-const LoadMoreButton = styled.button`
-  padding: 10px;
-  font-size: 13px;
-  background: ${colors.yellow};
-  width: 100px;
-  border-radius: 5px;
-  border: 1px solid ${colors.yellow};
-`
-const PanToCenterButton = styled.button`
-  padding: 10px 5px;
-  border: none;
-  font-size: 25px;
-  color: orange;
-`
 
 const Cycling: React.FC<CardProps> = ({ stations }: any) => {
   const [searchStation, setSearchStation] = useState('')
