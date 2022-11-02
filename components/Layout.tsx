@@ -1,5 +1,5 @@
 import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import Footer from './footer/Footer'
 import styled from 'styled-components'
 import colors from '../utils/colors'
 
