@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar'
+import Navbar from './navbar/Navbar'
 import Footer from './footer/Footer'
 import styled from 'styled-components'
 import colors from '../utils/colors'
